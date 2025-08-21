@@ -34,18 +34,30 @@
             }
         }
 
-        /* Additional mobile viewport fixes */
+        /* Mobile viewport fixes with black background */
         @media screen and (max-width: 768px) {
             html {
                 height: -webkit-fill-available;
             }
             
             body {
-                background: #000000;
+                background: #000000 !important;
                 background-attachment: scroll;
                 min-height: 100vh;
                 min-height: -webkit-fill-available;
                 height: 100%;
+            }
+        }
+
+        /* iOS-specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            @media screen and (max-width: 768px) {
+                body {
+                    background: #000000 !important;
+                    background-image: none !important;
+                    min-height: -webkit-fill-available;
+                    height: -webkit-fill-available;
+                }
             }
         }
 
